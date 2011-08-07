@@ -1,0 +1,14 @@
+inherit python kde4
+
+
+PATCH_URI="4.5.5-cygwin-termios.patch"
+
+PKG_NAMES="marble plasma-applet-worldclock
+           libmarblewidget12 libmarblewidget-devel python-pykde4-marble"
+marble_CONTENTS="--exclude=cmake --exclude=plasma* etc/ usr/bin/*.exe usr/lib/kde4/ usr/share/"
+libmarblewidget12_CONTENTS="usr/bin/cygmarblewidget-12.dll"
+libmarblewidget_devel_CONTENTS="usr/include/ usr/lib/lib* usr/share/kde4/apps/cmake/"
+plasma_applet_worldclock_CONTENTS="usr/lib/kde4/plasma_* usr/share/kde4/services/plasma-*"
+python_pykde4_marble_CONTENTS=${PYTHON_SITELIB#/}"/PyKDE4/marble.dll"
+
+CYGCMAKE_ARGS="-DEXPERIMENTAL_PYTHON_BINDINGS=TRUE"

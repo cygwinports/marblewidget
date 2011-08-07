@@ -1,0 +1,4 @@
+category: KDE Science
+requires: libgcc1 libkdecore5 libmarblewidget12 libQtCore4 libQtDeclarative4 libQtGui4 libQtNetwork4 libQtSvg4 libQtWebKit4 libQtXml4 libstdc++6
+sdesc: "KDE geographical map"
+ldesc: "KDE education suite"
