@@ -1,5 +1,5 @@
 category: KDE
-requires: libgcc1 libkdecore5 libmarblewidget12 libplasma3 libQtCore4 libQtGui4 libstdc++6
+requires: libgcc1 libkdecore5 libmarblewidget13 libplasma3 libQtCore4 libQtGui4 libstdc++6
 external-source: marble
 sdesc: "KDE world clock Plasma applet"
 ldesc: "KDE education suite"
