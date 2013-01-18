@@ -1,14 +1,27 @@
 inherit python kde4
 
+NAME="marble"
+VERSION=4.8.5
+RELEASE=1
+CATEGORY="KDE Science"
+SUMMARY="KDE geographical map"
+DESCRIPTION="KDE education suite"
 
 PATCH_URI="4.5.5-cygwin-termios.patch"
 
 PKG_NAMES="marble plasma-applet-worldclock
            libmarblewidget13 libmarblewidget-devel python-pykde4-marble"
 marble_CONTENTS="--exclude=cmake --exclude=plasma* etc/ usr/bin/*.exe usr/lib/*4/ usr/share/"
+libmarblewidget13_SUMMARY="${SUMMARY} library (runtime)"
 libmarblewidget13_CONTENTS="usr/bin/cygmarblewidget-13.dll"
+libmarblewidget_devel_SUMMARY="${SUMMARY} library (development)"
+libmarblewidget_devel_REQUIRES="libQtCore4-devel libQtDBus4-devel libQtGui4-devel libQtNetwork4-devel libQtWebKit4-devel libQtSvg4-devel libQtXml4-devel"
 libmarblewidget_devel_CONTENTS="usr/include/ usr/lib/lib* usr/share/kde4/apps/cmake/"
+plasma_applet_worldclock_SUMMARY="KDE world clock Plasma applet"
 plasma_applet_worldclock_CONTENTS="usr/lib/kde4/plasma_* usr/share/kde4/services/plasma-*"
+python_pykde4_marble_CATEGORY="Python"
+python_pykde4_marble_SUMMARY="${SUMMARY} library (Python bindings)"
+python_pykde4_marble_REQUIRES="python-pyqt4"
 python_pykde4_marble_CONTENTS=${PYTHON_SITELIB#/}"/PyKDE4/marble.dll"
 
 CYGCMAKE_ARGS="-DEXPERIMENTAL_PYTHON_BINDINGS=TRUE"

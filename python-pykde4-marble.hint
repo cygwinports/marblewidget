@@ -1,5 +1,0 @@
-category: KDE Python
-requires: libgcc1 libmarblewidget13 libQtCore4 libQtGui4 libstdc++6 python python-pyqt4
-external-source: marble
-sdesc: "KDE geographical map library (Python bindings)"
-ldesc: "KDE education suite"
