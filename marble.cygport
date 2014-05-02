@@ -7,9 +7,25 @@ CATEGORY="Science"
 SUMMARY="KDE geographical map"
 DESCRIPTION="Part of the KDE education suite"
 
-PKG_NAMES="marble libmarblewidget17 libmarblewidget-devel python-pykde4-marble"
+PATCH_URI="4.12.5-no-touch.patch"
+
+PKG_NAMES="marble marble-qt marble-common marble-plugins
+	libmarblewidget17 libmarblewidget-devel python-pykde4-marble"
 marble_OBSOLETES="plasma-applet-worldclock"
-marble_CONTENTS="--exclude=cmake etc/ usr/bin/*.exe usr/lib/*4/ usr/share/"
+marble_REQUIRES="marble-common marble-plugins"
+marble_CONTENTS="etc/ usr/bin/marble.exe usr/lib/kde4/*.dll
+	usr/share/applications/kde4/marble.desktop
+	usr/share/applications/kde4/marble_*.desktop
+	usr/share/kde4/config.kcfg/ usr/share/kde4/services/"
+marble_qt_REQUIRES="marble-common marble-plugins"
+marble_qt_CONTENTS="usr/bin/marble-*.exe
+	usr/share/applications/kde4/marble-*.desktop"
+marble_common_CONTENTS="etc/ usr/share/doc/ usr/share/icons/ usr/share/kde4/apps/marble/ usr/share/mime/"
+# the imports are really only used by marble-touch (Meego)
+marble_plugins_REQUIRES="marble-common"
+marble_plugins_CONTENTS="usr/lib/kde4/plugins/designer/
+	usr/lib/kde4/plugins/marble/
+	usr/lib/qt4/imports/org/kde/edu/marble/"
 libmarblewidget17_SUMMARY="${SUMMARY} library (runtime)"
 libmarblewidget17_CONTENTS="usr/bin/cygmarblewidget-17.dll"
 libmarblewidget_devel_SUMMARY="${SUMMARY} library (development)"
