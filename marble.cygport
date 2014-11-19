@@ -1,7 +1,7 @@
 inherit python kde4
 
 NAME="marble"
-VERSION=4.13.3
+VERSION=4.14.3
 RELEASE=1
 CATEGORY="Science"
 SUMMARY="KDE geographical map"
@@ -10,11 +10,12 @@ DESCRIPTION="Part of the KDE education suite"
 PATCH_URI="4.12.5-no-touch.patch"
 
 PKG_NAMES="marble marble-qt marble-common marble-plugins
-	libmarblewidget18 libmarblewidget-devel libastro1 libastro-devel"
+	libmarblewidget19 libmarblewidget-devel libastro1 libastro-devel"
 # python-pykde4-marble
 marble_OBSOLETES="plasma-applet-worldclock"
 marble_REQUIRES="marble-common marble-plugins"
 marble_CONTENTS="etc/ usr/bin/marble.exe usr/lib/kde4/*.dll
+	usr/share/appdata/
 	usr/share/applications/kde4/marble.desktop
 	usr/share/applications/kde4/marble_*.desktop
 	usr/share/kde4/config.kcfg/ usr/share/kde4/services/"
@@ -27,9 +28,9 @@ marble_plugins_REQUIRES="marble-common"
 marble_plugins_CONTENTS="usr/lib/kde4/plugins/designer/
 	usr/lib/kde4/plugins/marble/
 	usr/lib/qt4/imports/org/kde/edu/marble/"
-libmarblewidget18_CATEGORY="Libs"
-libmarblewidget18_SUMMARY="${SUMMARY} library (runtime)"
-libmarblewidget18_CONTENTS="usr/bin/cygmarblewidget-18.dll"
+libmarblewidget19_CATEGORY="Libs"
+libmarblewidget19_SUMMARY="${SUMMARY} library (runtime)"
+libmarblewidget19_CONTENTS="usr/bin/cygmarblewidget-19.dll"
 libmarblewidget_devel_CATEGORY="Libs"
 libmarblewidget_devel_SUMMARY="${SUMMARY} library (development)"
 libmarblewidget_devel_REQUIRES="libQtCore4-devel libQtDBus4-devel libQtGui4-devel libQtNetwork4-devel libQtWebKit4-devel libQtSvg4-devel libQtXml4-devel"
