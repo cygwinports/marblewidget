@@ -1,7 +1,7 @@
 inherit python kde4
 
 NAME="marble"
-VERSION=4.14.3
+VERSION=14.12.3
 RELEASE=1
 CATEGORY="Science"
 SUMMARY="KDE geographical map"
