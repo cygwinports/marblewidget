@@ -10,7 +10,7 @@ DESCRIPTION="Part of the KDE education suite"
 PATCH_URI="4.12.5-no-touch.patch"
 
 PKG_NAMES="marble marble-qt marble-common marble-plugins
-	libmarblewidget19 libmarblewidget-devel libastro1 libastro-devel"
+	libmarblewidget20 libmarblewidget-devel libastro1 libastro-devel"
 # python-pykde4-marble
 marble_OBSOLETES="plasma-applet-worldclock"
 marble_REQUIRES="marble-common marble-plugins"
@@ -28,9 +28,9 @@ marble_plugins_REQUIRES="marble-common"
 marble_plugins_CONTENTS="usr/lib/kde4/plugins/designer/
 	usr/lib/kde4/plugins/marble/
 	usr/lib/qt4/imports/org/kde/edu/marble/"
-libmarblewidget19_CATEGORY="Libs"
-libmarblewidget19_SUMMARY="${SUMMARY} library (runtime)"
-libmarblewidget19_CONTENTS="usr/bin/cygmarblewidget-19.dll"
+libmarblewidget20_CATEGORY="Libs"
+libmarblewidget20_SUMMARY="${SUMMARY} library (runtime)"
+libmarblewidget20_CONTENTS="usr/bin/cygmarblewidget-20.dll"
 libmarblewidget_devel_CATEGORY="Libs"
 libmarblewidget_devel_SUMMARY="${SUMMARY} library (development)"
 libmarblewidget_devel_REQUIRES="libQtCore4-devel libQtDBus4-devel libQtGui4-devel libQtNetwork4-devel libQtWebKit4-devel libQtSvg4-devel libQtXml4-devel"
