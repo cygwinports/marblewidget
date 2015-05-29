@@ -13,7 +13,7 @@ PKG_NAMES="marble marble-qt marble-common marble-plugins
 	libmarblewidget20 libmarblewidget-devel libastro1 libastro-devel"
 # python-pykde4-marble
 marble_OBSOLETES="plasma-applet-worldclock"
-marble_REQUIRES="marble-common marble-plugins"
+marble_REQUIRES="kde-runtime marble-common marble-plugins"
 marble_CONTENTS="etc/ usr/bin/marble.exe usr/lib/kde4/*.dll
 	usr/share/appdata/
 	usr/share/applications/kde4/marble.desktop
