@@ -1,0 +1,25 @@
+--- origsrc/marble-15.08.3/src/CMakeLists.txt	2017-02-02 22:52:57.868853600 -0600
++++ src/marble-15.08.3/src/CMakeLists.txt	2017-02-03 01:37:55.288092700 -0600
+@@ -69,5 +69,5 @@ endif(APPLE)
+ # FIXME ktimezonewidget.h is gone
+ #add_subdirectory( plasmoid )
+ 
+-add_subdirectory( plasmarunner )
++#add_subdirectory( plasmarunner )
+ add_subdirectory( thumbnailer )
+--- origsrc/marble-15.08.3/src/plugins/runner/CMakeLists.txt	2015-11-04 13:55:30.000000000 -0600
++++ src/marble-15.08.3/src/plugins/runner/CMakeLists.txt	2017-02-03 01:59:21.969604000 -0600
+@@ -21,10 +21,10 @@ add_subdirectory( cyclestreets )
+ 
+ #Parsing
+ add_subdirectory( cache )
+-add_subdirectory( gpx )
++#add_subdirectory( gpx )
+ add_subdirectory( json )
+-add_subdirectory( kml )
+-add_subdirectory( osm )
++#add_subdirectory( kml )
++#add_subdirectory( osm )
+ add_subdirectory( pn2 )
+ add_subdirectory( pnt )
+ add_subdirectory( log )

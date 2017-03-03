@@ -1,0 +1,56 @@
+ORIG_PN="marble"
+inherit kde4
+
+NAME="marblewidget"
+VERSION=15.08.3
+RELEASE=1
+CATEGORY="Science"
+SUMMARY="KDE geographical map"
+DESCRIPTION="Part of the KDE education suite"
+
+PATCH_URI="
+	http://pkgs.fedoraproject.org/cgit/rpms/marble-widget.git/plain/marble-15.08.0-qt4.patch
+	http://pkgs.fedoraproject.org/cgit/rpms/marble-widget.git/plain/marble-15.08.3-astro.patch
+	15.08.3-cmake-install.patch
+	15.08.3-ftm.patch
+	15.08.3-lib-only.patch
+"
+
+PKG_NAMES="libmarblewidget22 libmarblewidget-devel"
+marble_common_CONTENTS="etc/ usr/share/doc/ usr/share/icons/ usr/share/kde4/apps/marble/ usr/share/mime/"
+libmarblewidget22_CATEGORY="Libs"
+libmarblewidget22_REQUIRES="marblewidget-data"
+libmarblewidget22_OBSOLETES="marble-plugins"
+libmarblewidget22_SUMMARY="${SUMMARY} library (runtime)"
+libmarblewidget22_CONTENTS="
+	usr/bin/cygmarblewidget-22.dll
+	usr/lib/qt4/imports/org/kde/edu/marble/
+	usr/lib/qt4/plugins/marble/22/
+	usr/share/doc/${NAME}/
+"
+libmarblewidget_devel_CATEGORY="Libs"
+libmarblewidget_devel_SUMMARY="${SUMMARY} library (development)"
+libmarblewidget_devel_REQUIRES="libQtCore4-devel libQtDBus4-devel libQtGui4-devel libQtNetwork4-devel libQtWebKit4-devel libQtSvg4-devel libQtXml4-devel"
+libmarblewidget_devel_CONTENTS="
+	usr/include/marblewidget/marble/
+	usr/lib/libmarblewidget.dll.a
+	usr/lib/qt4/plugins/designer/
+	usr/share/marble/cmake/
+"
+PKG_IGNORE="
+	etc/postinstall/*
+	usr/share/appdata/
+	usr/share/doc/HTML/en/marble/
+	usr/share/icons/hicolor/*/apps/marble.*
+	usr/share/marble/data/
+"
+
+# Python bindings broken in 4.13
+CYGCMAKE_ARGS="
+	-DBUILD_MARBLE_APPS=OFF
+	-DBUILD_MARBLE_TESTS=OFF
+	-DEXPERIMENTAL_PYTHON_BINDINGS=OFF
+	-DMARBLE_DATA_PATH="/usr/share/marble/data"
+	-DMARBLE_PLUGIN_PATH="/usr/lib/qt4/plugins/marble/22"
+	-DQT5BUILD=OFF
+"

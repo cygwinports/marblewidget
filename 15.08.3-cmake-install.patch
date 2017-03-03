@@ -1,0 +1,33 @@
+--- origsrc/marble-15.08.3/FindMarble.cmake.in	2015-11-04 13:55:30.000000000 -0600
++++ src/marble-15.08.3/FindMarble.cmake.in	2017-02-03 01:33:25.579960400 -0600
+@@ -13,7 +13,7 @@ IF ( MARBLE_INCLUDE_DIR AND MARBLE_LIBRA
+    SET( MARBLE_FIND_QUIETLY TRUE )
+ ENDIF ( MARBLE_INCLUDE_DIR AND MARBLE_LIBRARIES )
+ 
+-FIND_PATH( MARBLE_INCLUDE_DIR NAMES marble/MarbleModel.h )
++FIND_PATH( MARBLE_INCLUDE_DIR NAMES marble/MarbleModel.h PATH_SUFFIXES marblewidget )
+ FIND_LIBRARY( MARBLE_LIBRARIES NAMES @MARBLEWIDGET@ )
+ 
+ INCLUDE( FindPackageHandleStandardArgs )
+--- origsrc/marble-15.08.3/src/lib/marble/CMakeLists.txt	2017-02-02 22:52:57.877857000 -0600
++++ src/marble-15.08.3/src/lib/marble/CMakeLists.txt	2017-02-03 01:31:00.346399600 -0600
+@@ -439,7 +439,9 @@ if(WIN32)
+ elseif(APPLE)
+   install(TARGETS ${MARBLEWIDGET} LIBRARY DESTINATION ${CMAKE_INSTALL_PREFIX}/Marble.app/Contents/MacOS/lib)
+ else()
+-  install(TARGETS ${MARBLEWIDGET} LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR})
++  install(TARGETS ${MARBLEWIDGET} LIBRARY DESTINATION ${CMAKE_INSTALL_LIBDIR}
++                                  RUNTIME DESTINATION ${CMAKE_INSTALL_BINDIR}
++                                  ARCHIVE DESTINATION ${CMAKE_INSTALL_LIBDIR})
+ endif()
+ 
+ 
+@@ -613,7 +615,7 @@ install( FILES
+     routing/RoutingModel.h
+     routing/RoutingProfile.h
+ 
+-    DESTINATION ${CMAKE_INSTALL_PREFIX}/include/marble
++    DESTINATION ${CMAKE_INSTALL_PREFIX}/include/marblewidget/marble
+ )
+ 
+ CONFIGURE_FILE(${CMAKE_CURRENT_SOURCE_DIR}/config-phonon.h.cmake
